@@ -26,8 +26,9 @@ export const PokiApiProvider = ({ children }) => {
         { 'dark': '#785442' },
         { 'fairy': '#FFACFF' },
         { 'shadow': '#0E2E4C' },
-
     ]
+
+    console.log(colors[9].fire);
 
     const [pokemonData, setPokemonData] = useState([]);
 
@@ -68,12 +69,6 @@ export const PokiApiProvider = ({ children }) => {
         //     });
         //     setPokemonData(allPokemonData);
         // });
-
-          
-        
-          
-
-          
         };
     
         fetchPokemonData();
