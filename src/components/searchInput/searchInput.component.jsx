@@ -6,7 +6,7 @@ const SearchInput = ({search}) => {
     return (
         <>
             <Input onChange = {search} placeholder='Search Pokemon'
-                className={`border-2 ${isFocused ? 'border-blue-500' : 'border-gray-300'} rounded-md p-2 focus:outline-none focus:border-blue-500 transition duration-300 w-4/5 py-10 rounded-r-3xl text-xl font-mono`}
+                className={`border-2 ${isFocused ? 'border-blue-500' : 'border-gray-300'} rounded-md p-2 focus:outline-none focus:border-blue-500 transition duration-300 w-2/3 ml-14 py-10 rounded-r-3xl text-xl font-mono`}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
             />

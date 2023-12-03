@@ -1,25 +1,19 @@
-import { useContext } from "react";
-import { PokiApiContext } from "@/context/pokiApi";
+const RightComponent = ({ rcdImage, rcdId, rcdTypes, rcdAbility, rcdName, rcdDescription, rcdHeight, rcdWeight }) => {
 
-
-const LeftComponent = ({ id, name, types, gettingDataForRightComponent }) => {
-
-    const { colors } = useContext(PokiApiContext)
-    let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${id}.png`
-
-
+    console.log('typescc', rcdAbility);
     return (
-        <div onClick = {() => gettingDataForRightComponent(id, name)} className="h-36 w-72 mx-3 border-0 hover:border-2 cursor-pointer bg-white rounded-3xl
-         group">
+        <>
+            <img src={`${rcdImage}`} alt="pokemon" className=" h-[120px] w-[120px] -mt-20" />
 
-            <img className=" -mt-12 ml-24 -mb-1 group-hover:scale-110 transition-transform duration-200"
-                src={imgUrl} />
-            <p className=" text-xs text-[#8F9396] font-bold font-outfit pb-2">N°{id}</p>
-            <h3 className="font-outfit text-base font-black">{name}</h3>
-            
-            {types ? (
+            <div className=" pt-5">
+                <p className=" text-xs text-[#8F9396] font-bold font-outfit pb-2">N°{rcdId}</p>
+
+                {/* Heading */}
+                <h3 className="font-outfit text-2xl font-semibold text-[1.5em]">{rcdName}</h3>
+
+                {/* types */}
                 <div className="types pt-3">
-                    {types.map((type, i) => (
+                    {rcdTypes.map((type, i) => (
                         <span key={i}
                             className={`text-sm font-outfit border-0 mx-1 rounded-xl px-3 py-1 
                             ${type === 'Normal' ? "bg-[#BCBCAC]" :
@@ -50,14 +44,52 @@ const LeftComponent = ({ id, name, types, gettingDataForRightComponent }) => {
                         </span>
                     ))}
                 </div>
-                        
-            ) : (
-                <p>Loading types...</p>
-            )}
+
+                {/* Description */}
+
+                <div className=" mt-6">
+                    <h3 className="font-outfit text-2xl font-bold text-[16px]">Pokidex Entry</h3>
+
+                    <p className=" font-sans font-medium leading-5 mt-3 text-[#8F9396] text-base px-5">{rcdDescription}</p>
+                </div>
+
+                {/* Height and Weight */}
+
+                <div className="flex items-center justify-center mt-4">
+                    <div>
+                        <h3 className="font-outfit text-2xl font-bold text-[16px]">Height</h3>
+                        <p className="font-outfit text-2xl font-medium text-[16px] bg-[#f6f8fc] px-14 mx-2 rounded-3xl">{`${rcdHeight}m`}</p>
+                    </div>
+                    <div>
+                        <h3 className="font-outfit text-2xl font-bold text-[16px]">Weight</h3>
+                        <p className="font-outfit text-2xl font-medium text-[16px] bg-[#f6f8fc] px-14 mx-2 rounded-3xl">{`${rcdWeight}kg`}</p>
+                    </div>
+                </div>
+
+                {/* Abilities */}
+
+                <div className="flex items-center justify-center mt-4 flex-col">
+                    <h3 className="font-outfit text-2xl font-bold text-[16px]">Abilities</h3>
+
+                    <div className="flex">
+
+                        {rcdAbility.map((ability, i) => {
+                            return (
+                                <div key={i} className="px-10 py-2 rounded-3xl mx-2 bg-[#f6f8fc]">
+                                    <p className="font-outfit  font-medium text-[16px]  ">{ability.charAt(0).toUpperCase() + ability.slice(1)}</p>
+                                </div>
+                            )
+                        })}
+
+                    </div>
+                </div>
 
 
-        </div>
+
+            </div>
+
+        </>
     )
 };
 
-export default LeftComponent;
+export default RightComponent;
