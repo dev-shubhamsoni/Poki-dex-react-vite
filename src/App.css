@@ -7,5 +7,15 @@
   height: 100%;
   box-sizing: border-box;
   /* background-color: #f6f8fc;  */
+  
 }
 
+body {
+  overflow-x: hidden;
+}
+
+
+
+.allData::-webkit-scrollbar{
+  display: none;
+}
