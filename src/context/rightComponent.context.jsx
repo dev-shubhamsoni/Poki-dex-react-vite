@@ -1,15 +1,11 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { PokiApiContext } from "@/context/pokiApi";
 
-
 export const RightComponentContext = createContext({});
 
 export const RightComponentContextProvider = ({ children }) => {
 
     const { pokemonData } = useContext(PokiApiContext);
-
-
-
     const [rightCompData, setRightCompData] = useState([]);
     console.log('right comp data context', rightCompData);
     const [rcdImage, setRcdImage] = useState('');
@@ -24,10 +20,9 @@ export const RightComponentContextProvider = ({ children }) => {
 
     const [rcdEvolution, setRcdEvolution] = useState([]);
 
-
     const [intialLoading, setInitialLoading] = useState(true);
 
-    const [rcdIconLoading, setRcdIconLoading ] = useState(false);
+    const [rcdIconLoading, setRcdIconLoading] = useState(false);
 
     useEffect(() => {
         console.log('evolution array context', rcdEvolution);
@@ -37,15 +32,21 @@ export const RightComponentContextProvider = ({ children }) => {
     // Functions Start
 
     const gettingDataForRightComponent = (id, name) => {
+        setRcdIconLoading(true);
 
         console.log('context id', id, name);
         const filterData = pokemonData.filter((item, index) => {
             return index === id - 1 ? item : console.error();
         })
 
+        let imageUrl = '';
 
-        const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/' + id + '.gif'
-
+        if (id >= 650) {
+            imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/' + id + '.png';
+        } else {
+            imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/' + id + '.gif'
+        }
+        
         const types = filterData.map((item) => {
             return item.types;
         });
@@ -56,7 +57,6 @@ export const RightComponentContextProvider = ({ children }) => {
         });
 
         const stats = filterData[0].stats;
-
 
         const height = filterData[0].height;
         const weight = filterData[0].weight;
@@ -70,7 +70,6 @@ export const RightComponentContextProvider = ({ children }) => {
         setRcdWeight(weight);
         setRcdAbility(ability[0].slice(0, 2))
         setRcdStats(stats)
-
 
         fetchRcdDescription(id);
         evolutionDetails(id);
@@ -86,9 +85,7 @@ export const RightComponentContextProvider = ({ children }) => {
         const description = data.flavor_text_entries[0].flavor_text;
         const cleanDescription = description.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
 
-
         setRcdDescription(cleanDescription)
-
     }
 
     const evolutionDetails = async (id) => {
@@ -98,7 +95,6 @@ export const RightComponentContextProvider = ({ children }) => {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
         const data = await response.json();
         const gettingEcolutionUrl = data.evolution_chain.url;
-
 
         const response2 = await fetch(gettingEcolutionUrl);
         const data2 = await response2.json();
@@ -114,7 +110,6 @@ export const RightComponentContextProvider = ({ children }) => {
         const urlPokemon3 = data2.chain?.evolves_to?.[0]?.evolves_to?.[0]?.species?.url ?? undefined;
         const finUrlPokemon3 = urlPokemon3 ? urlPokemon3.split("/")[6] : '';
 
-
         evoArray.push(
             { 'minLevel': minLevel },
             { 'maxLevel': maxLevel },
@@ -123,19 +118,11 @@ export const RightComponentContextProvider = ({ children }) => {
             { 'evolutionFinal': finUrlPokemon3 }
         );
 
-
-
         setRcdEvolution(evoArray);
 
-        setRcdIconLoading(true);
-
         setTimeout(() => {
-        setRcdIconLoading(false);
-
-            
-        }, 4000);
-
-
+            setRcdIconLoading(false);
+        }, 2000);
 
     }
 
@@ -155,7 +142,7 @@ export const RightComponentContextProvider = ({ children }) => {
         rcdEvolution,
         intialLoading,
         rcdIconLoading
-        
+
     };
     return <RightComponentContext.Provider value={value}>{children}</RightComponentContext.Provider>
 }

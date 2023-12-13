@@ -30,32 +30,20 @@ export const PokiApiProvider = ({ children }) => {
                     return { ...pokemon, types, height, weight, ability, stats };
                 });
                 setPokemonData(enhancedPokemonData);
-                setLoading(false);
-                // setTimeout(() => {
-                //     setLoading(false);
-                // }, 1000);
+                // setLoading(false);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 3000);
             });
 
-            // fetching description for each pokemon
-            //   const descriptionPromises = pokemonNames.map((pokemon) => {
-            //     return axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}`);
-            //   });
-
-            //   Promise.all(descriptionPromises).then((responses) => {
-            //     const allPokemonData = pokemonNames.map((pokemon, index) => {
-            //         const pokemonDetails = responses[index].data;
-            //         const description = pokemonDetails.flavor_text_entries[0].flavor_text; // Extracting the first entry
-            //         return { ...pokemon, description };
-            //     });
-            //     setPokemonData(allPokemonData);
-            // });
+    
         };
 
         fetchPokemonData();
     }, []);
 
 
-    const value = { pokemonData, loading };
+    const value = { pokemonData, loading, setLoading };
 
     return <PokiApiContext.Provider value={value}>{children}</PokiApiContext.Provider>;
 };

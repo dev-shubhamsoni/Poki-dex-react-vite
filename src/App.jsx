@@ -1,20 +1,19 @@
 import { useContext, useState, useEffect } from "react";
 import { PokiApiContext } from "@/context/pokiApi";
 import { RightComponentContext } from "@/context/rightComponent.context";
-import LoadingIcon from './assets/pokeball-icon.png'
+import LoadingIcon from './assets/ball-game-poke-sport-sports-svgrepo-com.svg'
 import NoPokemonImage from './assets/no-pokemon-selected-image.png'
-import 'animate.css';
 import SearchInput from './components/searchInput/searchInput.component'
 import LeftComponent from './components/left component/leftComponent.component'
 import RightComponent from "./components/right component/rightcomponent.component";
+import 'animate.css';
 import './App.css'
 
 function App() {
 
-  const { pokemonData, loading } = useContext(PokiApiContext);
+  const { pokemonData, loading, setLoading } = useContext(PokiApiContext);
   const { rcdImage, intialLoading, rcdIconLoading } = useContext(RightComponentContext);
   const [searchInput, setSearchInput] = useState('');
-
 
   const search = (e) => {
     setSearchInput(e.target.value)
@@ -50,7 +49,6 @@ function App() {
                   <LeftComponent key={pokemon.id} id={pokemon.id} name={capitalizedName} types={pokemon.types} />
                 );
               })}
-
             </div>
 
             {/* Right Component */}
@@ -71,12 +69,12 @@ function App() {
 
               rcdIconLoading ? (
 
-                <div className="h-screen flex align-middle justify-center">
+                <div className="h-[40rem] w-[26rem] sticky top-2 flex justify-center items-start">
                   <img src={LoadingIcon} alt="Loading" className=' h-28 w-28 mt-56 animate-spin' />
                 </div>
 
               ) : (
-                <div className={` animate__animated animate__fadeInRight ${rcdIconLoading ? 'animate__fadeOutRight__faster' : 'animate__fadeInRight'}
+                <div className={` animate__animated animate__fadeInRight
                  WholeRightComponent flex flex-col sticky top-10 h-[40rem] -mt-[8rem]`}>
 
                   <div className="flex justify-center z-10 "><img src={`${rcdImage}`} alt="pokemon" className="pokiImageRc h-[8rem] w-[10rem]" /></div>
@@ -88,13 +86,7 @@ function App() {
 
                 </div>
               )
-
-
             )}
-
-
-
-
 
           </div>
         </>
@@ -105,4 +97,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
