@@ -6,7 +6,7 @@ import Abilities from "./abilities/abilities.component";
 import Stats from "./stats/stats.component";
 import Evolution from "./evolution/evolution.component";
 
-const RightComponent = ({ evolutionArray, allStats }) => {
+const RightComponent = () => {
 
     const { rcdImage, rcdId, rcdName, rcdDescription, rcdHeight, rcdWeight } = useContext(RightComponentContext);
 
@@ -14,7 +14,7 @@ const RightComponent = ({ evolutionArray, allStats }) => {
 
     return (
         <>
-            <img src={`${rcdImage}`} alt="pokemon" className=" h-[120px] w-[120px]" />
+            
 
             <div className=" pt-5">
                 <p className=" text-xs text-[#8F9396] font-bold font-outfit pb-2">N°{rcdId}</p>
@@ -32,7 +32,7 @@ const RightComponent = ({ evolutionArray, allStats }) => {
                 <div className=" mt-6">
                     <h3 className="font-outfit text-2xl font-bold text-[16px]">Pokidex Entry</h3>
 
-                    <p className=" font-sans font-medium leading-5 mt-3 text-[#8F9396] text-base px-5">{rcdDescription}</p>
+                    <p className=" font-outfit font-medium leading-5 mt-3 text-[#8F9396] text-base px-5">{rcdDescription}</p>
                 </div>
 
                 {/* Height and Weight */}

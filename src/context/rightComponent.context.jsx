@@ -24,6 +24,11 @@ export const RightComponentContextProvider = ({ children }) => {
 
     const [rcdEvolution, setRcdEvolution] = useState([]);
 
+
+    const [intialLoading, setInitialLoading] = useState(true);
+
+    const [rcdIconLoading, setRcdIconLoading ] = useState(false);
+
     useEffect(() => {
         console.log('evolution array context', rcdEvolution);
     }, [rcdEvolution]);
@@ -70,6 +75,8 @@ export const RightComponentContextProvider = ({ children }) => {
         fetchRcdDescription(id);
         evolutionDetails(id);
 
+        setInitialLoading(false);
+
     }
 
     const fetchRcdDescription = async (id) => {
@@ -108,13 +115,6 @@ export const RightComponentContextProvider = ({ children }) => {
         const finUrlPokemon3 = urlPokemon3 ? urlPokemon3.split("/")[6] : '';
 
 
-        console.log('url1', urlPokemon1, finUrlPokemon1);
-        console.log('url2', urlPokemon2, finUrlPokemon2);
-        console.log('url3', urlPokemon3, finUrlPokemon3);
-        console.log('url1 pokemon', urlPokemon1);
-
-
-
         evoArray.push(
             { 'minLevel': minLevel },
             { 'maxLevel': maxLevel },
@@ -126,6 +126,14 @@ export const RightComponentContextProvider = ({ children }) => {
 
 
         setRcdEvolution(evoArray);
+
+        setRcdIconLoading(true);
+
+        setTimeout(() => {
+        setRcdIconLoading(false);
+
+            
+        }, 4000);
 
 
 
@@ -144,7 +152,10 @@ export const RightComponentContextProvider = ({ children }) => {
         rcdHeight,
         rcdWeight,
         rcdStats,
-        rcdEvolution
+        rcdEvolution,
+        intialLoading,
+        rcdIconLoading
+        
     };
     return <RightComponentContext.Provider value={value}>{children}</RightComponentContext.Provider>
 }

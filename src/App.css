@@ -12,6 +12,7 @@
 
 body {
   overflow-x: hidden;
+  
 }
 
 
@@ -19,3 +20,8 @@ body {
 .allData::-webkit-scrollbar{
   display: none;
 }
+
+.pokiImageRc{
+  image-rendering: pixelated;
+}
+

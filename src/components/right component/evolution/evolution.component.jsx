@@ -17,7 +17,7 @@ const Evolution = ({ }) => {
     return (
         <>
             <h3 className="font-outfit text-2xl font-bold text-[16px] pt-5">Evolution</h3>
-            <div className="mainContainer pt-2 flex gap-0 justify-center items-center mb-6">
+            <div className="mainContainer pt-0 flex gap-0 justify-center items-center mb-6">
 
                 {evolutionFinal !== '' ? (
                     // Render content when evolutionFinal is defined
