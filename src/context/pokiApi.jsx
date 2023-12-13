@@ -30,9 +30,10 @@ export const PokiApiProvider = ({ children }) => {
                     return { ...pokemon, types, height, weight, ability, stats };
                 });
                 setPokemonData(enhancedPokemonData);
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
+                setLoading(false);
+                // setTimeout(() => {
+                //     setLoading(false);
+                // }, 1000);
             });
 
             // fetching description for each pokemon

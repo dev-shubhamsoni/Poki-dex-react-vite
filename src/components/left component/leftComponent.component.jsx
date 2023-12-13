@@ -1,10 +1,6 @@
-import { useContext } from "react";
-import { PokiApiContext } from "@/context/pokiApi";
-
-
 const LeftComponent = ({ id, name, types, gettingDataForRightComponent }) => {
 
-    const { colors } = useContext(PokiApiContext)
+    
     let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${id}.png`
 
 

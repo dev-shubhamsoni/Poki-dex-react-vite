@@ -1,9 +1,11 @@
-const RightComponent = ({allStats ,rcdImage, rcdId, rcdTypes, rcdAbility, rcdName, rcdDescription, rcdHeight, rcdWeight }) => {
+import Evolution from "./evolution/evolution.component";
 
-    console.log('typescc', rcdAbility);
+const RightComponent = ({ evolutionArray, allStats, rcdImage, rcdId, rcdTypes, rcdAbility, rcdName, rcdDescription, rcdHeight, rcdWeight }) => {
+
+
     return (
         <>
-            <img src={`${rcdImage}`} alt="pokemon" className=" h-[120px] w-[120px] " />
+            <img src={`${rcdImage}`} alt="pokemon" className=" h-[120px] w-[120px]" />
 
             <div className=" pt-5">
                 <p className=" text-xs text-[#8F9396] font-bold font-outfit pb-2">N°{rcdId}</p>
@@ -85,9 +87,10 @@ const RightComponent = ({allStats ,rcdImage, rcdId, rcdTypes, rcdAbility, rcdNam
                 </div>
 
                 {/* Stats */}
+
                 <h3 className="font-outfit text-2xl font-bold text-[16px] pt-5">Stats</h3>
                 <div className="stats flex justify-center pt-2">
-                
+
 
                     <div className=" bg-[#f6f8fc] h-[4.5rem]  mx-1 px-2 rounded-3xl font-bold flex flex-col justify-center">
                         <p className=" bg-[#cd3845] rounded-full px-1 py-1 text-xs text-white">HP</p>
@@ -113,7 +116,7 @@ const RightComponent = ({allStats ,rcdImage, rcdId, rcdTypes, rcdAbility, rcdNam
                         <p className=" bg-[#a5d88c] rounded-full px-1 py-1 text-xs text-white">SpD</p>
                         <p className=" text-sm pt-1">{allStats[4] ? allStats[4] : 0}</p>
                     </div>
- 
+
                     <div className=" bg-[#f6f8fc] h-[4.5rem] mx-1 px-2 rounded-3xl font-bold flex flex-col justify-center">
                         <p className=" bg-[#ed99a9] rounded-full px-1 py-1 text-xs text-white">SPD</p>
                         <p className=" text-sm pt-1">{allStats[5] ? allStats[5] : 0}</p>
@@ -121,14 +124,25 @@ const RightComponent = ({allStats ,rcdImage, rcdId, rcdTypes, rcdAbility, rcdNam
 
                     <div className=" bg-[#8fa9e5] h-[4.5rem] mx-1 px-2 rounded-3xl font-bold flex flex-col justify-center">
                         <p className=" bg-[#7894d7] rounded-full px-1 py-1 text-xs text-white">TOT</p>
-                        <p className=" text-sm pt-1">{allStats.reduce((acc, number)=>{
+                        <p className=" text-sm pt-1">{allStats.reduce((acc, number) => {
                             return acc + number;
-                        },0)}</p>
+                        }, 0)}</p>
                     </div>
-                        
-                    
+
+
 
                 </div>
+
+                {/* Evolution */}
+
+                <div className="stats flex justify-center pt-2">
+
+                    <Evolution />
+
+
+                </div>
+
+
 
             </div>
 
