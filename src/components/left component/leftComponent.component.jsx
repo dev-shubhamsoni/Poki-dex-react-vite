@@ -1,4 +1,9 @@
-const LeftComponent = ({ id, name, types, gettingDataForRightComponent }) => {
+import { useContext } from "react";
+import { RightComponentContext } from "@/context/rightComponent.context";
+
+const LeftComponent = ({ id, name, types}) => {
+
+    const {gettingDataForRightComponent} = useContext(RightComponentContext);
 
     
     let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${id}.png`
