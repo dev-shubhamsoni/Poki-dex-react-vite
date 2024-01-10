@@ -7,7 +7,6 @@ export const RightComponentContextProvider = ({ children }) => {
 
     const { pokemonData } = useContext(PokiApiContext);
     const [rightCompData, setRightCompData] = useState([]);
-    console.log('right comp data context', rightCompData);
     const [rcdImage, setRcdImage] = useState('');
     const [rcdId, setRcdId] = useState('');
     const [rcdTypes, setRcdTypes] = useState([]);
@@ -125,7 +124,6 @@ export const RightComponentContextProvider = ({ children }) => {
         }, 2000);
 
     }
-
 
 
     const value = {

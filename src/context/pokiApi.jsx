@@ -36,7 +36,7 @@ export const PokiApiProvider = ({ children }) => {
                 }, 3000);
             });
 
-    
+
         };
 
         fetchPokemonData();

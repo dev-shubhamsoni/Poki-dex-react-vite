@@ -1,8 +1,10 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { PokiApiContext } from "@/context/pokiApi";
 import { RightComponentContext } from "@/context/rightComponent.context";
+
 import LoadingIcon from './assets/ball-game-poke-sport-sports-svgrepo-com.svg'
 import NoPokemonImage from './assets/no-pokemon-selected-image.png'
+
 import SearchInput from './components/searchInput/searchInput.component'
 import LeftComponent from './components/left component/leftComponent.component'
 import RightComponent from "./components/right component/rightcomponent.component";
@@ -11,7 +13,7 @@ import './App.css'
 
 function App() {
 
-  const { pokemonData, loading, setLoading } = useContext(PokiApiContext);
+  const { pokemonData, loading} = useContext(PokiApiContext);
   const { rcdImage, intialLoading, rcdIconLoading } = useContext(RightComponentContext);
   const [searchInput, setSearchInput] = useState('');
 
@@ -24,7 +26,7 @@ function App() {
   });
 
   return (
-    <div className=' pt-14 bg-[#f6f8fc] pb-[22rem] '>
+    <div className='mainApp pt-14 bg-[#f6f8fc] pb-[22rem] '>
 
       {loading ? (
         <div className="h-screen flex align-middle justify-center">
@@ -60,8 +62,8 @@ function App() {
                 <div className="h-[5rem] w-[26rem] bg-white -mt-10 rounded-t-3xl"></div>
 
                 <div className='allData h-[37rem] w-[26rem] bg-white flex justify-center items-center flex-col rounded-b-3xl'>
-                  <p className="font-outfit text-base font-bold text-[#95989a]">Select a Pokemon
-                    to display here.</p>
+                  <p className="font-outfit text-base font-bold text-[#95989a]">
+                  Select a Pokemon to display here.</p>
                 </div>
 
               </div>
@@ -77,7 +79,7 @@ function App() {
                 <div className={` animate__animated animate__fadeInRight
                  WholeRightComponent flex flex-col sticky top-10 h-[40rem] -mt-[8rem]`}>
 
-                  <div className="flex justify-center z-10 "><img src={`${rcdImage}`} alt="pokemon" className="pokiImageRc h-[8rem] w-[10rem]" /></div>
+                  <div className="flex justify-center z-10 "><img src={`${rcdImage}`} alt="pokemon" className="pokiImageRc h-[8rem] w-[9rem]" /></div>
                   <div className="h-[5rem] w-[26rem] bg-white -mt-10 rounded-t-3xl"></div>
 
                   <div className='allData overflow-y-scroll h-[37rem] w-[26rem] bg-white  flex items-center flex-col rounded-b-3xl'>
