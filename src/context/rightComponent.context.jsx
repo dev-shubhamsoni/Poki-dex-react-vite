@@ -139,7 +139,8 @@ export const RightComponentContextProvider = ({ children }) => {
         rcdStats,
         rcdEvolution,
         intialLoading,
-        rcdIconLoading
+        rcdIconLoading,
+        setInitialLoading
 
     };
     return <RightComponentContext.Provider value={value}>{children}</RightComponentContext.Provider>

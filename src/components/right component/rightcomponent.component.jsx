@@ -14,7 +14,7 @@ const RightComponent = () => {
 
     return (
         <>
-            
+
 
             <div className=" pt-5">
                 <p className=" text-xs text-[#8F9396] font-bold font-outfit pb-2">N°{rcdId}</p>
@@ -40,11 +40,17 @@ const RightComponent = () => {
                 <div className="flex items-center justify-center mt-4">
                     <div>
                         <h3 className="font-outfit text-2xl font-bold text-[16px]">Height</h3>
-                        <p className="font-outfit text-2xl font-medium text-[16px] bg-[#f6f8fc] px-14 mx-2 rounded-3xl">{`${rcdHeight}m`}</p>
+                        <p className="font-outfit text-2xl font-medium text-[16px] bg-[#f6f8fc] px-[10vw] mx-2 rounded-3xl
+                        
+                        sm:px-[4vw]
+                        ">{`${rcdHeight}m`}</p>
                     </div>
                     <div>
                         <h3 className="font-outfit text-2xl font-bold text-[16px]">Weight</h3>
-                        <p className="font-outfit text-2xl font-medium text-[16px] bg-[#f6f8fc] px-14 mx-2 rounded-3xl">{`${rcdWeight}kg`}</p>
+                        <p className="font-outfit text-2xl font-medium text-[16px] bg-[#f6f8fc] px-[10vw] mx-2 rounded-3xl
+                        
+                        sm:px-[4vw]
+                        ">{`${rcdWeight}kg`}</p>
                     </div>
                 </div>
 
@@ -56,7 +62,6 @@ const RightComponent = () => {
                     <div className="flex pt-2">
 
                         <Abilities />
-
                     </div>
                 </div>
 
@@ -64,7 +69,11 @@ const RightComponent = () => {
 
                 <h3 className="font-outfit text-2xl font-bold text-[16px] pt-5">Stats</h3>
 
-                <div className="stats flex justify-center pt-4">
+                <div className="stats grid grid-cols-5  mx-[2vw] justify-center pt-4 gap-[0.8rem]
+                
+                sm:grid-cols-7
+                lg:mx-[0.8vw] lg:gap-[0.5vw]
+                ">
 
                     <Stats />
 

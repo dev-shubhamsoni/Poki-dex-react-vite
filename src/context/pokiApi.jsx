@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import axios, { all } from "axios";
+import axios from "axios";
 
 export const PokiApiContext = createContext({});
 

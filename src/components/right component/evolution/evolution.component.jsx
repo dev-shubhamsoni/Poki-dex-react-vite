@@ -24,7 +24,7 @@ const Evolution = ({ }) => {
                     <>
                         <div><img src={imageEvoBase} /></div>
                         
-                        <div className="bg-[#f6f8fc] h-[2rem] w-[6rem] rounded-xl flex justify-center items-center">
+                        <div className="bg-[#f6f8fc] h-[5vh] w-[6vw] rounded-xl flex justify-center items-center">
 
                             {/* <p className=" text-xs font-bold">{`Lv. ${minLevel}`}</p> */}
                             <p className=" text-xs font-bold">{minLevel !== undefined ? `Lv. ${minLevel}` : '?'}</p>
@@ -34,7 +34,7 @@ const Evolution = ({ }) => {
 
                         <div><img src={imageEvoMid} /></div>
                         
-                        <div className="bg-[#f6f8fc] h-[2rem] w-[6rem] rounded-xl flex justify-center items-center">
+                        <div className="bg-[#f6f8fc] h-[5vh] w-[6vw] rounded-xl flex justify-center items-center">
 
                             {/* <p className=" text-xs font-bold">{`Lv. ${maxLevel}`}</p> */}
                             <p className=" text-xs font-bold">{maxLevel !== undefined ? `Lv. ${maxLevel}` : '?'}</p>

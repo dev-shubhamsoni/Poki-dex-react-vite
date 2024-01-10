@@ -1,23 +1,34 @@
 import { useContext } from "react";
 import { RightComponentContext } from "@/context/rightComponent.context";
 
-const LeftComponent = ({ id, name, types}) => {
+const LeftComponent = ({ id, name, types }) => {
 
-    const {gettingDataForRightComponent} = useContext(RightComponentContext);
+    const { gettingDataForRightComponent } = useContext(RightComponentContext);
 
-    
+
     let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${id}.png`
 
 
     return (
-        <div onClick = {() => gettingDataForRightComponent(id, name)} className="h-36 w-72 mx-3 border-0 hover:border-2 cursor-pointer bg-white rounded-3xl
-         group">
+        <div onClick={() => gettingDataForRightComponent(id, name)}
+            className=" ml-[8vw] h-[22vh] w-[70vw] mx-3 border-0 hover:border-2 cursor-pointer bg-white rounded-3xl group
+            
+            sm:w-[30vw] sm:h-[22vh] sm:max-md:ml-4
+            md:max-lg:w-[28vw] md:ml-0
+            lg:max-xl:ml-[-3vw] lg:w-[20vw]
+        ">
 
-            <img className=" -mt-12 ml-24 -mb-1 group-hover:scale-110 transition-transform duration-200"
+            <img className=" ml-[30%] -mt-12 -mb-1 group-hover:scale-110 transition-transform duration-200
+
+            sm:ml-[7vw]
+            md:max-lg:ml-[8vw]
+            lg:max-xl:ml-[6vw] lg:max-xl:w-[8vw]
+            
+            "
                 src={imgUrl} />
             <p className=" text-xs text-[#8F9396] font-bold font-outfit pb-2">N°{id}</p>
             <h3 className="font-outfit text-base font-black">{name}</h3>
-            
+
             {types ? (
                 <div className="types pt-3">
                     {types.map((type, i) => (
@@ -51,7 +62,7 @@ const LeftComponent = ({ id, name, types}) => {
                         </span>
                     ))}
                 </div>
-                        
+
             ) : (
                 <p>Loading types...</p>
             )}
