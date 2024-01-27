@@ -104,10 +104,10 @@ function App() {
                   <img src={LoadingIcon} alt="Loading" className=' h-28 w-28 mt-56 animate-spin' />
                 </div>
               ) : (
-                <div className={` absolute animate__animated animate__fadeInRight WholeRightComponent flex flex-col top-[25vh] left-[5vw] h-[85vh] -mt-[8rem]
+                <div className={`animate__animated animate__fadeInRight WholeRightComponent flex flex-col top-[10vh] right-[5vw] lg:right-[0vw] h-[85vh] -mt-[8rem]
                   
                   sm:left-[20vw]
-                  lg:sticky lg:top-10 lg:left-[35vw]
+                  sticky lg:top-10 lg:left-[35vw]
                   `}>
 
                   <div className="flex justify-center z-10 ">

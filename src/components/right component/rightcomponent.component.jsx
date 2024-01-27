@@ -8,9 +8,9 @@ import Evolution from "./evolution/evolution.component";
 
 const RightComponent = () => {
 
-    const { rcdImage, rcdId, rcdName, rcdDescription, rcdHeight, rcdWeight } = useContext(RightComponentContext);
+    const { rcdId, rcdName, rcdDescription, rcdHeight, rcdWeight } = useContext(RightComponentContext);
 
-    console.log('image context', rcdImage);
+    
 
     return (
         <>

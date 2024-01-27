@@ -31,9 +31,9 @@ export const PokiApiProvider = ({ children }) => {
                 });
                 setPokemonData(enhancedPokemonData);
                 // setLoading(false);
-                setTimeout(() => {
+                
                     setLoading(false);
-                }, 3000);
+                
             });
 
 
